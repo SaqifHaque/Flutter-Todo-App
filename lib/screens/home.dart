@@ -10,35 +10,50 @@ class Home extends StatelessWidget {
       backgroundColor: tdBGColor,
       appBar: _buildAppBar(),
       body: Container(
-        padding:EdgeInsets.symmetric(horizontal: 15),
+        padding:EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical:15
+        ),
         child: Column(
           children:[
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20)
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(0),
-                    prefixIcon: Icon(
-                        Icons.search,
-                        color: tdBlack,
-                        size: 20
-                    ),
-                    prefixIconConstraints: BoxConstraints(
-                      maxHeight: 20,
-                      minHeight: 25,
-                    ),
-                    border: InputBorder.none,
-                    hintText: 'search'
-                  ),
-                ),
-              ),
+            searchBox(),
+            ListView(
+              children:[
+                Container(
+                  margin: EdgeInsets.only()
+                )
+              ]
+            )
           ],
         ),
       ),
     );
+  }
+  Widget searchBox(){
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20)
+        ),
+      child: TextField(
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(0),
+          prefixIcon: Icon(
+            Icons.search,
+            color: tdBlack,
+            size: 20
+            ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 20,
+            minWidth: 25,
+          ),
+          border: InputBorder.none,
+          hintText: 'search ',
+          hintStyle: TextStyle(color: tdGrey)
+        ),
+      ),
+    ),
   }
 
   AppBar _buildAppBar() {
@@ -58,7 +73,7 @@ class Home extends StatelessWidget {
           width: 40,
           child:ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child:Image.asset('assets/images/avatar.jpg'),
+            child:Image.asset('assets/images/images.jpeg'),
           )
         )
       ]),
